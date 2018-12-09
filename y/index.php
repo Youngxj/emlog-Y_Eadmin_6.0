@@ -11,9 +11,9 @@
                         <p class="maindata"><b>草稿箱</b></p>
                         <?php
                         if (ROLE == ROLE_ADMIN) {
-                            $cgx = $sta_cache['draftnum'] == 0 ? '' : $sta_cache['draftnum'];
+                            $cgx = $sta_cache['draftnum'] == 0 ? '0' : $sta_cache['draftnum'];
                         } else {
-                            $cgx = $sta_cache[UID]['draftnum'] == 0 ? '' : $sta_cache[UID]['draftnum'];
+                            $cgx = $sta_cache[UID]['draftnum'] == 0 ? '0' : $sta_cache[UID]['draftnum'];
                         }?>
                         <h2><span class="animate-number" data-value="<?php echo $cgx;?>" data-duration="3000"></span></h2>
                         <div class="clearfix"></div>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="text-box">
                         <p class="maindata"><b>用户数</b></p>
-                        <h2><span class="animate-number" data-value="<?php echo $usernum?$usernum:count($sta_cache)-8;?>" data-duration="3000"></span></h2>
+                        <h2><span class="animate-number" data-value="<?php echo $usernum?$usernum:count($sta_cache)-7;?>" data-duration="3000"></span></h2>
                         <div class="clearfix"></div>
                     </div>
                 </div>
