@@ -2,6 +2,26 @@
 <?php if (ROLE == ROLE_ADMIN):?>
     <div class="row top-summary ">
         <div class="col-lg-3 col-md-6">
+            <div class="widget pink-1 animated fadeInDown">
+                <div class="widget-content padding">
+                    <div class="widget-icon">
+                        <i class="icon-feather"></i>
+                    </div>
+                    <div class="text-box">
+                        <p class="maindata"><b>草稿箱</b></p>
+                        <?php
+                        if (ROLE == ROLE_ADMIN) {
+                            $cgx = $sta_cache['draftnum'] == 0 ? '' : $sta_cache['draftnum'];
+                        } else {
+                            $cgx = $sta_cache[UID]['draftnum'] == 0 ? '' : $sta_cache[UID]['draftnum'];
+                        }?>
+                        <h2><span class="animate-number" data-value="<?php echo $cgx;?>" data-duration="3000"></span></h2>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
             <div class="widget green-1 animated fadeInDown">
                 <div class="widget-content padding">
                     <div class="widget-icon">
@@ -31,20 +51,7 @@
             </div>
         </div>
 
-        <!-- <div class="col-lg-3 col-md-6">
-            <div class="widget pink-1 animated fadeInDown">
-                <div class="widget-content padding">
-                    <div class="widget-icon">
-                        <i class="icon-comment-3"></i>
-                    </div>
-                    <div class="text-box">
-                        <p class="maindata"><b>微语</b></p>
-                        <h2><span class="animate-number" data-value="<?php echo $sta_cache['twnum'];?>" data-duration="3000"></span></h2>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+        
 
         <div class="col-lg-3 col-md-6">
             <div class="widget lightblue-1 animated fadeInDown">
@@ -62,41 +69,6 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12">
-            <div class="widget">
-                <div class="widget-header ">
-                    <h2><i class="fa fa-comments-o"></i> <strong>微语</strong></h2>
-                    <div class="additional-btn">
-                        <a href="#" class="widget-popout hidden tt" title="Pop Out/In"><i class="icon-publish"></i></a>
-                    </div>
-                </div>
-                <div class="widget-content padding">
-                    <div class="chat-form">
-                        <form method="post" action="twitter.php?action=post">
-                            <div class="form-group">
-                                <input name="token" id="token" value="<?php echo LoginAuth::genToken(); ?>" type="hidden" />
-                                <textarea class="form-control box" name="t" placeholder="消息内容…" style="height: 140px; resize: none;"></textarea>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-6 text-left">
-                                    <a class="btn btn-sm btn-default" id="face" title="添加表情"><i class="fa fa-smile-o"></i></a>
-
-                                    <a id="uploadfile"></a>
-                                </div>
-                                <div class="col-xs-6 text-right">
-                                  <input type="submit" value="发布微语" onclick="return checkt();" class="btn btn-sm btn-primary m-t-n-xs"/>
-                              </div>
-                          </div>
-                          <div id="img_name" class="twImg" style="display:none;">
-                              <a id="img_name_a" class="imgicon">{图片名称}</a>
-                              <a id="img-cancel"> [取消]</a>
-                              <a id="img_pop"></a>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
       <div class="col-lg-6">
         <div class="widget">
             <div class="widget-header ">
